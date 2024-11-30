@@ -54,7 +54,7 @@ export interface WebsiteDashBoardProps {
   };
 }
 
-export const formSchema = z.object({
+ const formSchema = z.object({
   name: z.string().min(1, {
     message: "WebPage must be at least 1 characters.",
   }),

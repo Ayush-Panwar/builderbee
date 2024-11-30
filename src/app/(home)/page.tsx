@@ -18,7 +18,7 @@ import { Card } from "@/components/ui/card";
 import { useEffect, useState } from "react";
 import { useWebsitesData } from "../../../store/useWebsitesData";
 
-export const formSchema = z.object({
+const formSchema = z.object({
   name: z.string().min(2, {
     message: "website must be at least 5 characters.",
   }),
