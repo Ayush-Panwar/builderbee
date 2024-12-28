@@ -54,7 +54,7 @@ export interface WebsiteDashBoardProps {
   };
 }
 
- const formSchema = z.object({
+const formSchema = z.object({
   name: z.string().min(1, {
     message: "WebPage must be at least 1 characters.",
   }),
@@ -187,7 +187,7 @@ export default function WebsiteDashBoard({ params }: WebsiteDashBoardProps) {
                   webPageDetails={webpage}
                   websiteId={params.website}
                   published={websiteData?.published}
-                  websiteName={websiteData?.name}
+                  websiteSubDomain={websiteData?.subDomain || ""}
                 />
               ))
             : ""}

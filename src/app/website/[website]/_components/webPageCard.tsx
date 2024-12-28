@@ -43,7 +43,7 @@ interface Props {
   webPageDetails: WebPage;
   websiteId: string;
   published: boolean;
-  websiteName: string;
+  websiteSubDomain: string;
 }
 
 export default function WebPageCard({
@@ -51,7 +51,7 @@ export default function WebPageCard({
   webPageDetails,
   websiteId,
   published,
-  websiteName,
+  websiteSubDomain,
 }: Props) {
   console.log(
     webPageDetails.published,
@@ -124,7 +124,7 @@ export default function WebPageCard({
                 />
                 <div className="flex flex-row items-center justify-between">
                   <Link
-                    href={`http://${websiteName}.${process.env.NEXT_PUBLIC_DOMAIN}/${webPageDetails.pathName}`}
+                    href={`http://${websiteSubDomain}.${process.env.NEXT_PUBLIC_DOMAIN}/${webPageDetails.pathName}`}
                     target="_blank"
                     className={clsx({
                       " pointer-events-none": !(
@@ -141,7 +141,7 @@ export default function WebPageCard({
                           ),
                         }
                       )}
-                    >{`http://${websiteName.toLocaleLowerCase()}.${
+                    >{`http://${websiteSubDomain?.toLocaleLowerCase()}.${
                       process.env.NEXT_PUBLIC_DOMAIN
                     }/${webPageDetails.pathName}`}</span>
                   </Link>

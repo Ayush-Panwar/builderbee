@@ -19,10 +19,11 @@ export function middleware(request: NextRequest) {
   console.log(
     "😁😀",
     hostname.get("host"),
+    process.env.NEXT_PUBLIC_DOMAIN,
     hostname.get("host")?.split(`${process.env.NEXT_PUBLIC_DOMAIN}`),
     hostname
       .get("host")
-      ?.split(`.${process.env.NEXT_PUBLIC_DOMAIN}`)
+      ?.split(`${process.env.NEXT_PUBLIC_DOMAIN}`)
       .filter(Boolean)[0]
   );
 
@@ -30,6 +31,7 @@ export function middleware(request: NextRequest) {
     console.log(
       "😎",
       customSubDomain,
+      pathWithSearchParams,
       new URL(
         `/${customSubDomain}${pathWithSearchParams}`,
         request.url

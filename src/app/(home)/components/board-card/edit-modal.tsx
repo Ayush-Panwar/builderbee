@@ -52,7 +52,6 @@ const formSchema = z.object({
 export const EditModal = () => {
   const { isOpen, onClose, initialValues } = useRenameModal();
   const { websites, setWebsites } = useWebsitesData();
-  console.log("HIIIsdfsdfsf", websites);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
