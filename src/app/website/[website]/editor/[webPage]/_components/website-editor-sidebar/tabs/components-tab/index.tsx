@@ -41,12 +41,12 @@ const ComponentsTab = (props: Props) => {
       id: "2Col",
       group: "layout",
     },
-    {
-      Component: <VideoPlaceholder />,
-      label: "Video",
-      id: "video",
-      group: "elements",
-    },
+    // {
+    //   Component: <VideoPlaceholder />,
+    //   label: "Video",
+    //   id: "video",
+    //   group: "elements",
+    // },
 
     {
       Component: <LinkPlaceholder />,
