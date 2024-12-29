@@ -4,9 +4,7 @@ import { getDomainContent } from "@/lib/queries";
 import { notFound } from "next/navigation";
 import React from "react";
 import EditorProvider from "@/Provider/editor-provider";
-import { Website } from "@/types/editor_types";
 import WebsiteEditor from "../website/[website]/editor/[webPage]/_components/website-editor";
-import Head from "next/head";
 
 const Page = async ({ params }: { params: { domain: string } }) => {
   const domainData = await getDomainContent(params.domain.slice(0, -1));

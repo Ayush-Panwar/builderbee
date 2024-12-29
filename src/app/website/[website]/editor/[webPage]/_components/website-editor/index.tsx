@@ -17,7 +17,7 @@ type Props = {
 
 const WebsiteEditor = ({ webPageId, liveMode, title, favicon }: Props) => {
   const { dispatch, state } = useEditor();
-  document.title = title || "";
+  document.title = title || "BuilderBee";
   const link: HTMLLinkElement | null =
     document.querySelector("link[rel~='icon']");
   if (link) {
