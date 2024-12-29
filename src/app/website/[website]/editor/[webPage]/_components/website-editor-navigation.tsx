@@ -53,6 +53,13 @@ const WebsiteEditorNavigation = ({
   }, [webPageDetails]);
 
   const handlePublishChange = async (checked: boolean) => {
+    if (
+      userId !== "5547bc68-4be3-4e41-a040-c83fc59eace8" &&
+      webPageDetails?.id == "ecef223c-094e-4e74-9c72-a7e1984687b1"
+    ) {
+      return toast.error("You are not Authorized to Publish this website");
+    }
+
     const response = await upsertWebPage(
       webPageDetails.id,
       {
@@ -75,6 +82,14 @@ const WebsiteEditorNavigation = ({
     event
   ) => {
     if (event.target.value === webPageDetails.name) return;
+    if (
+      userId !== "5547bc68-4be3-4e41-a040-c83fc59eace8" &&
+      webPageDetails?.id == "ecef223c-094e-4e74-9c72-a7e1984687b1"
+    ) {
+      return toast.error(
+        "You are not Authorized to change name of this webpage"
+      );
+    }
     if (event.target.value) {
       await upsertWebPage(
         webPageDetails.id,
@@ -107,6 +122,14 @@ const WebsiteEditorNavigation = ({
   };
 
   const handleOnSave = async () => {
+    if (
+      userId !== "5547bc68-4be3-4e41-a040-c83fc59eace8" &&
+      webPageDetails?.id == "ecef223c-094e-4e74-9c72-a7e1984687b1"
+    ) {
+      console.log(webPageDetails.id);
+      return toast.error("You are not Authorized to Save this website");
+    }
+
     const content = JSON.stringify(state.editor.elements);
     try {
       const response = await upsertWebPage(
@@ -133,7 +156,14 @@ const WebsiteEditorNavigation = ({
         )}
       >
         <aside className="flex items-center gap-4 max-w-[260px] w-[300px]">
-          <Link href={`/website/${websiteId}/`}>
+          <Link
+            href={
+              userId !== "5547bc68-4be3-4e41-a040-c83fc59eace8" &&
+              webPageDetails?.id == "ecef223c-094e-4e74-9c72-a7e1984687b1"
+                ? "/"
+                : `/website/${websiteId}/`
+            }
+          >
             <ArrowLeftCircle />
           </Link>
           <div className="flex flex-col w-full ">

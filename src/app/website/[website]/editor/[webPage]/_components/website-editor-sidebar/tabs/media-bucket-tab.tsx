@@ -5,6 +5,7 @@ import { GetMediaFiles } from "@/types/editor_types";
 import { useSession } from "next-auth/react";
 
 import React, { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 type Props = {
   userId: string;
@@ -15,6 +16,10 @@ const MediaBucketTab = (props: Props) => {
 
   useEffect(() => {
     const fetchData = async () => {
+      if (!props.userId) {
+        return toast.error("You are not Authorized to Use Media Library ");
+      }
+
       const response = await getMedia(props?.userId);
       setdata(response);
     };
