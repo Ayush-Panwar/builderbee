@@ -126,7 +126,6 @@ const WebsiteEditorNavigation = ({
       userId !== "5547bc68-4be3-4e41-a040-c83fc59eace8" &&
       webPageDetails?.id == "ecef223c-094e-4e74-9c72-a7e1984687b1"
     ) {
-      console.log(webPageDetails.id);
       return toast.error("You are not Authorized to Save this website");
     }
 
